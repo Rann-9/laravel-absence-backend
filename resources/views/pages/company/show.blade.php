@@ -14,7 +14,7 @@
             <div class="section-header">
                 <h1>Company Profile</h1>
                 <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                    <div class="breadcrumb-item active"><a href="{{ URL('/home') }}">Dashboard</a></div>
                     <div class="breadcrumb-item">Company Profile</div>
                 </div>
             </div>

@@ -3,14 +3,16 @@
 use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 
 Route::get('/', function () {
     return view('pages.auth.login');
 });
 
 Route::get('/home', function () {
-    return view('pages.dashboard');
-});
+    $userCount = User::count();
+    return view('pages.dashboard', compact('userCount'));
+})->middleware('auth');
 
 Route::resource('user', UserController::class);
 

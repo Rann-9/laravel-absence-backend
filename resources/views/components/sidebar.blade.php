@@ -7,20 +7,28 @@
             <a href="{{ url('/home') }}">AB</a>
         </div>
         <ul class="sidebar-menu">
-            <li class="nav-item dropdown {{ Request::is('dashboard-general-dashboard') || Request::is('company/*') || Request::is('user*') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            <li class="menu-header">Dashboard</li>
+
+            {{-- Users --}}
+            <li class="nav-item dropdown {{ Request::is('user*') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-user"></i><span>Users</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ Request::is('user*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('user.index') }}">Users</a>
+                        <a class="nav-link" href="{{ route('user.index') }}">All Users</a>
                     </li>
-                    @php
-                        $company = \App\Models\Company::first();
-                    @endphp
-                    <li class="{{ Request::is('company/*') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ $company ? route('company.show', $company->id) : '#' }}">Company Profile</a>
+                </ul>
+            </li>
+
+            {{-- Company --}}
+            <li class="nav-item dropdown {{ Request::is('company*') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-building"></i><span>Company</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ Request::is('company*') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('company.show', 1) }}">Company Profile</a>
                     </li>
                 </ul>
             </li>
         </ul>
+
     </aside>
 </div>
