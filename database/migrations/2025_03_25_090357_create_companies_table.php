@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('email');
             $table->string('latitude');
-            $table->string('longtitude');
+            $table->string('longitude');
             $table->string('radius_km');
             $table->string('time_in');
             $table->string('time_out');

@@ -41,7 +41,7 @@ class UserController extends Controller
     }
 
     public function edit($id) {
-        $user = User::findOrFail($id);
+        $user = User::find($id);
         return view('pages.users.edit', compact('user'));
     }
 
@@ -58,7 +58,7 @@ class UserController extends Controller
     }
 
     public function destroy(User $user){
-        $user = User::findOrFail($user->id);
+        $user = User::find($user->id);
         $user->delete();
         return redirect()->route('user.index')->with('success', 'User deleted successfully');
     }

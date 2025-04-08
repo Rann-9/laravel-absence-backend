@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -12,6 +13,8 @@ Route::get('/home', function () {
 });
 
 Route::resource('user', UserController::class);
+
+Route::resource('company', CompanyController::class);
 
 // Route::get('/login', function () {
 //     return view('pages.auth.login');
